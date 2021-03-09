@@ -6,19 +6,22 @@ import ru.job4j.chess.firuges.Figure;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
-import static ru.job4j.chess.firuges.Cell.C1;
+import static ru.job4j.chess.firuges.Cell.*;
 
 public class BishopBlackTest {
 
     @Test
     public void position() {
         BishopBlack rsl = new BishopBlack(C1);
-
         assertThat(rsl.position(), is(C1));
     }
 
     @Test
     public void way() {
+        BishopBlack rsl = new BishopBlack(C1);
+        Cell[] cell = {D2, E3, F4, G5};
+
+        assertThat(rsl.way(G6), is( cell));
     }
 
     @Test
@@ -27,5 +30,8 @@ public class BishopBlackTest {
 
     @Test
     public void copy() {
+        BishopBlack rsl = new BishopBlack(C1);
+       //   rsl.copy(C2).position();
+        assertThat(rsl.copy(C2).position(), is(C2));
     }
 }
