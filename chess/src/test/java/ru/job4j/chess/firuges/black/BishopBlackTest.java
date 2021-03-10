@@ -35,3 +35,4 @@ public class BishopBlackTest {
         assertThat(rsl.copy(C2).position(), is(C2));
     }
 }
+///
