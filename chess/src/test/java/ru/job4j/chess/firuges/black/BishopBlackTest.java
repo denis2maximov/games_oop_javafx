@@ -20,8 +20,7 @@ public class BishopBlackTest {
     public void way() {
         BishopBlack rsl = new BishopBlack(C1);
         Cell[] cell = {D2, E3, F4, G5};
-
-        assertThat(rsl.way(G6), is( cell));
+        assertThat(rsl.way(G5), is( cell));
     }
 
     @Test

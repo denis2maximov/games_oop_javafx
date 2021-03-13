@@ -21,6 +21,12 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (int i = 0; i != steps.length; i++) {
+            Figure figure = figures[i];
+            if (figure.position().equals(steps)) {
+            throw new OccupiedCellException(String.format("Занято!"));
+            }
+        }
         return true;
     }
 
