@@ -4,13 +4,16 @@ import org.junit.Ignore;
 import org.junit.Test;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.black.BishopBlack;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static ru.job4j.chess.firuges.Cell.G5;
 
 public class LogicTest {
 
     /**
      *  Первое -  фигура не найдена;
      *  Второе - слон ходит по диагонали, но стоит фигура - ловим OccupiedCellException;
-     * Третье - слон пошел не по диагонали  ловим ImpossibleMoveException;
+     * Третье - слон пошел не по диагонали,  ловим ImpossibleMoveException;
      */
 
     @Test(expected = FigureNotFoundException.class)
@@ -18,7 +21,7 @@ public class LogicTest {
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
-        logic.move(Cell.C2, Cell.G5);
+        logic.move(Cell.C2, G5);
     }
 
 
@@ -28,7 +31,7 @@ public class LogicTest {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
         logic.add(new BishopBlack(Cell.E3));
-        logic.move(Cell.C1, Cell.G5);
+        logic.move(Cell.C1, G5);
     }
 
     @Test(expected = ImpossibleMoveException.class)
@@ -38,5 +41,4 @@ public class LogicTest {
         logic.add(new BishopBlack(Cell.C1));
         logic.move(Cell.C1, Cell.A6);
     }
-
 }
