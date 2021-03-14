@@ -1,6 +1,7 @@
 package ru.job4j.chess.firuges.black;
 
 import org.junit.Test;
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
@@ -24,15 +25,21 @@ public class BishopBlackTest {
     }
 
     @Test
-    public void whenIsDiagonalthenOk() {
+    public void whenIsDiagonalThenOk() {
     BishopBlack one = new BishopBlack(C1);
     assertThat(one.isDiagonal(C1,G5), is(true));
     }
 
     @Test
-    public void whenIsDiagonalthenNotOk() {
+    public void whenIsDiagonalThenNotOk() {
         BishopBlack one = new BishopBlack(C1);
         assertThat(one.isDiagonal(C1,G3), is(false));
+    }
+
+    @Test (expected = ImpossibleMoveException.class)
+    public void whenIsDiagonalThenNotOkExpected() throws ImpossibleMoveException {
+        BishopBlack one = new BishopBlack(C1);
+        one.way(H3);
     }
 
     @Test
