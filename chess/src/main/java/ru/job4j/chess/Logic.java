@@ -20,15 +20,17 @@ public final class Logic {
         figures[index] = figures[index].copy(dest);
     }
 
-    private boolean free(Cell[] steps) throws OccupiedCellException {
-        for (int i = 0; i != steps.length; i++) {
-            Figure figure = figures[i];
-            if (figure.position().equals(steps)) {
-            throw new OccupiedCellException(String.format("Занято!"));
+    public boolean free(Cell[] steps) throws OccupiedCellException{
+        for (Cell cell : steps){
+            for (int i = 0; i < index; i++) {
+                if (figures[i].position().equals(cell)) {
+                    throw new OccupiedCellException("Занято!");
+    }
             }
         }
-        return true;
+    return  true;
     }
+        
 
     public void clean() {
         Arrays.fill(figures, null);

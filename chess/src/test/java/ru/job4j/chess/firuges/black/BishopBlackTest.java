@@ -11,27 +11,33 @@ import static ru.job4j.chess.firuges.Cell.*;
 public class BishopBlackTest {
 
     @Test
-    public void position() {
+    public void whenPosition() {
         BishopBlack rsl = new BishopBlack(C1);
         assertThat(rsl.position(), is(C1));
     }
 
     @Test
-    public void way() {
+    public void whenWayOk() {
         BishopBlack rsl = new BishopBlack(C1);
         Cell[] cell = {D2, E3, F4, G5};
         assertThat(rsl.way(G5), is( cell));
     }
 
     @Test
-    public void isDiagonal() {
+    public void whenIsDiagonalthenOk() {
+    BishopBlack one = new BishopBlack(C1);
+    assertThat(one.isDiagonal(C1,G5), is(true));
     }
 
     @Test
-    public void copy() {
+    public void whenIsDiagonalthenNotOk() {
+        BishopBlack one = new BishopBlack(C1);
+        assertThat(one.isDiagonal(C1,G3), is(false));
+    }
+
+    @Test
+    public void whenCopyThenOk() {
         BishopBlack rsl = new BishopBlack(C1);
-       //   rsl.copy(C2).position();
-        assertThat(rsl.copy(C2).position(), is(C2));
+       assertThat(rsl.copy(C2).position(), is(C2));
     }
 }
-///
